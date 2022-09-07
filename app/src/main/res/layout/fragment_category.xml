@@ -6,35 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".fragment.CategoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="category" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            app:layout_constraintBottom_toBottomOf="parent">
+        <include
+            android:id="@+id/category_toolbar"
+            layout="@layout/toolbar"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="1"
-                android:background="@color/black" />
-
-
-
-        </LinearLayout>
+        <include
+            android:id="@+id/news_fragment"
+            layout="@layout/fragment_bottom" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
