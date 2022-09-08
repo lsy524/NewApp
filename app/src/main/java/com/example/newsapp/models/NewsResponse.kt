@@ -16,11 +16,7 @@ data class Articles(
     val url : String,
     val urlTolmage : String,
     val publishedAt : String,
-    val content : String,
-    val source : List<Source>
+    val content : String
 )
 
-data class Source(
-    val id: String,
-    val name : String
-)
+
