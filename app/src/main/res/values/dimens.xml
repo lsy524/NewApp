@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_screen_fragment_height">0dp</dimen>
+    <dimen name="fragment_bottom_height">70dp</dimen>
+    <dimen name="fragment_recyclerView_height">0dp</dimen>
+
+    <dimen name="item_news_row_card_view_height">0dp</dimen>
+    <dimen name="item_news_row_card_view_corner_radius">4dp</dimen>
+    <dimen name="item_news_row_card_view_margin">20dp</dimen>
+
+    <dimen name="item_news_row_linearlayout_paddingBottom">15dp</dimen>
+    <dimen name="item_news_row_linearlayout_imageview_height">130dp</dimen>
+    <dimen name="item_news_row_linearlayout_textview_marginTop">20dp</dimen>
+    <dimen name="item_news_row_linearlayout_textview_text_size">19sp</dimen>
+    <dimen name="item_news_row_linearlayout_textview_padding">10dp</dimen>
+    <dimen name="item_news_row_linearlayout_textview_marginStartEnd">10dp</dimen>
+
+
+
+
+</resources>

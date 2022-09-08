@@ -14,7 +14,7 @@ data class Articles(
     val title : String,
     val description : String,
     val url : String,
-    val urlTolmage : String,
+    val urlToImage : String,
     val publishedAt : String,
     val content : String
 )

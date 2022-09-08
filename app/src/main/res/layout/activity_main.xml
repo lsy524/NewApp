@@ -17,9 +17,10 @@
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/main_screen_fragment_height"
         app:defaultNavHost="true"
         app:navGraph="@navigation/main_nav"
+        app:layout_constraintTop_toBottomOf="@+id/main_toolbar"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 

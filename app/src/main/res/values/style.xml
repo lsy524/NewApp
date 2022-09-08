@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ItemNewsRowTextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ItemNewsRowTimeTextView">
+        <item name="android:textColor">@color/lightGrey</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+</resources>
