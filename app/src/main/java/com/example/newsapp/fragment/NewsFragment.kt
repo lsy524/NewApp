@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsapp.R
 import com.example.newsapp.adapter.NewsAdapter
 import com.example.newsapp.databinding.FragmentNewsBinding
+import com.example.newsapp.models.Articles
 import com.example.newsapp.models.NewsResponse
 import com.example.newsapp.network.TopNewsService
 import com.example.newsapp.util.Constants
@@ -94,10 +95,12 @@ class NewsFragment : Fragment(), View.OnClickListener {
 
 
                     val items  =  mutableListOf<NewsResponse>()
-                    for(i in newsList.articles.indices) {
-                        items.add(NewsResponse(newsList.status, newsList.totalResult, newsList.articles))
-                    }
-                    Log.d(TAG, "$items")
+
+                    items.add(NewsResponse(newsList.status, newsList.totalResult, newsList.articles))
+
+
+
+                    Log.d(TAG, items.toString())
 
                     setUpNewsRecyclerView(items)
 
@@ -126,7 +129,7 @@ class NewsFragment : Fragment(), View.OnClickListener {
 
 
 
-    private fun setUpNewsRecyclerView(newsList : List<NewsResponse>) {
+    private fun setUpNewsRecyclerView(newsList : MutableList<NewsResponse>) {
         newsAdapter = NewsAdapter(newsList)
 
         binding.rvNews.adapter = newsAdapter
