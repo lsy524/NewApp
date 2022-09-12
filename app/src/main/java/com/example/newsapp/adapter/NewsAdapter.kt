@@ -1,5 +1,6 @@
 package com.example.newsapp.adapter
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +9,7 @@ import com.example.newsapp.databinding.ItemTopNewsRowBinding
 import com.example.newsapp.models.NewsResponse
 
 class NewsAdapter(
-    private val items: MutableList<NewsResponse>
+    private val items: List<NewsResponse>
 ) :
     RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
@@ -17,11 +18,6 @@ class NewsAdapter(
 
         fun bindItem(item: NewsResponse) {
 
-            for (i in item.articles.indices) {
-
-                binding.tvTime.text = item.articles[i].title
-
-            }
         }
     }
 

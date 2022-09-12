@@ -1,4 +1,4 @@
-package com.example.newsapp.room
+package com.example.newsapp.database
 
 import android.content.Context
 import androidx.room.Database
@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(version = 1, entities = [NewsEntity::class])
 abstract class NewsDatabase : RoomDatabase() {
+
     abstract fun newsDao() : NewsDAO
 
     companion object {
@@ -21,18 +22,13 @@ abstract class NewsDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         NewsDatabase::class.java,
-                        "headlineNews-table"
+                        "news_database"
                     ).fallbackToDestructiveMigration()
                         .build()
-
                     INSTANCE = instance
                 }
                 return instance
             }
         }
     }
-
-
-
-
 }

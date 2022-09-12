@@ -98,10 +98,7 @@ class NewsFragment : Fragment(), View.OnClickListener {
 
                     items.add(NewsResponse(newsList.status, newsList.totalResult, newsList.articles))
 
-
-
-                    Log.d(TAG, items.toString())
-
+                    Log.d(TAG, "${newsList}")
                     setUpNewsRecyclerView(items)
 
 
@@ -129,12 +126,12 @@ class NewsFragment : Fragment(), View.OnClickListener {
 
 
 
-    private fun setUpNewsRecyclerView(newsList : MutableList<NewsResponse>) {
+    private fun setUpNewsRecyclerView(newsList : List<NewsResponse>) {
         newsAdapter = NewsAdapter(newsList)
 
         binding.rvNews.adapter = newsAdapter
 
-        binding.rvNews.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvNews.layoutManager = LinearLayoutManager(context)
 
 
     }
