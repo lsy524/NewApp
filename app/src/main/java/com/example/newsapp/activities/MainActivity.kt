@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.mainToolbar.toolbar)
 
-        supportActionBar!!.title = "asdsad"
+        supportActionBar!!.title = "NewsApp"
 
 
 
