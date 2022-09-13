@@ -3,8 +3,7 @@ package com.example.newsapp.models
 import java.io.Serializable
 
 data class NewsResponse(
-    val status : String = "",
-    val totalResult : Int = 0,
+
     val articles: List<Articles>
 
 ) : Serializable

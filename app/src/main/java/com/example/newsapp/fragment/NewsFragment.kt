@@ -8,16 +8,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsapp.R
 import com.example.newsapp.adapter.NewsAdapter
+
 import com.example.newsapp.databinding.FragmentNewsBinding
 import com.example.newsapp.models.Articles
 import com.example.newsapp.models.NewsResponse
 import com.example.newsapp.network.TopNewsService
 import com.example.newsapp.util.Constants
 import com.google.gson.Gson
+import org.json.JSONObject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import retrofit.*
 
 
@@ -51,7 +57,9 @@ class NewsFragment : Fragment(), View.OnClickListener {
         binding.newsFragment.ivCategory.setOnClickListener(this@NewsFragment)
         binding.newsFragment.ivSave.setOnClickListener(this@NewsFragment)
 
+
         getHeadlineNews()
+
 
         return binding.root
     }
@@ -83,7 +91,6 @@ class NewsFragment : Fragment(), View.OnClickListener {
             override fun onResponse(response: Response<NewsResponse>?, retrofit: Retrofit?) {
                 if (response!!.isSuccess) {
                     val newsList: NewsResponse = response.body()
-
                     val newsResponseJsonString = Gson().toJson(newsList)
                     val editor = mSharedPreferences.edit()
                     editor.putString(
@@ -91,15 +98,65 @@ class NewsFragment : Fragment(), View.OnClickListener {
                         newsResponseJsonString
                     )
 
+
                     editor.apply()
 
+                    val z = mutableListOf<Articles>()
+                    response.body()?.let {
+                        var a : String
+                        var b : String
+                        var c : String
+                        var d : String
+                        var e : String
+                        var f : String
+                        var g : String
+                        for (i in it.articles.indices) {
+                            a = if(it.articles[i].author != null) {
+                                it.articles[i].author
+                            } else {
+                                ""
+                            }
+                            b = if(it.articles[i].title != null) {
+                                it.articles[i].title
+                            } else {
+                                ""
+                            }
+                            c = if(it.articles[i].description != null) {
+                                it.articles[i].description
+                            } else {
+                                ""
+                            }
+                            d = if(it.articles[i].url != null ){
+                                it.articles[i].url
+                            } else {
+                                ""
+                            }
 
-                    val items  =  mutableListOf<NewsResponse>()
+                            e = if(it.articles[i].urlToImage != null) {
+                                it.articles[i].urlToImage
+                            } else {
+                                ""
+                            }
+                            f = if(it.articles[i].publishedAt != null) {
+                                it.articles[i].publishedAt
+                            } else {
+                                ""
+                            }
+                            g = if(it.articles[i].content != null ) {
+                                it.articles[i].content
+                            } else {
+                                ""
+                            }
+                            z.add(Articles(a, b, c, d, e, f, g))
 
-                    items.add(NewsResponse(newsList.status, newsList.totalResult, newsList.articles))
+                        }
+                    }
 
-                    Log.d(TAG, "${newsList}")
-                    setUpNewsRecyclerView(items)
+
+                    setUpNewsRecyclerView(z)
+
+                    Log.d(TAG, " ${z.size}")
+
 
 
                 } else {
@@ -125,16 +182,20 @@ class NewsFragment : Fragment(), View.OnClickListener {
     }
 
 
-
-    private fun setUpNewsRecyclerView(newsList : List<NewsResponse>) {
+    private fun setUpNewsRecyclerView(newsList: List<Articles>) {
         newsAdapter = NewsAdapter(newsList)
 
         binding.rvNews.adapter = newsAdapter
 
         binding.rvNews.layoutManager = LinearLayoutManager(context)
 
-
     }
 
+
+    class LoadViewModel : ViewModel() {
+        val liveData = MutableLiveData<NewsResponse>()
+
+
+    }
 
 }
