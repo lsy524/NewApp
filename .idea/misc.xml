@@ -6,11 +6,12 @@
         <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/drawable/custom_card_view.xml" value="0.16" />
         <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_main.xml" value="0.2441123188405797" />
         <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_main2.xml" value="0.1766304347826087" />
+        <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/layout/activity_news_details.xml" value="0.2" />
         <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/layout/fragment_bottom.xml" value="0.2441123188405797" />
         <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/layout/fragment_category.xml" value="0.2441123188405797" />
         <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/layout/fragment_news.xml" value="0.2441123188405797" />
         <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/layout/fragment_saved.xml" value="0.2441123188405797" />
-        <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/layout/item_top_news_row.xml" value="0.264" />
+        <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/layout/item_top_news_row.xml" value="0.1" />
         <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/layout/toolbar.xml" value="0.2441123188405797" />
         <entry key="..\:/Users/dlatj/AndroidStudioProjects/NewsApp/app/src/main/res/menu/toolbar_menu.xml" value="0.264" />
       </map>

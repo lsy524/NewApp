@@ -8,6 +8,7 @@
     <dimen name="item_news_row_card_view_corner_radius">4dp</dimen>
     <dimen name="item_news_row_card_view_margin">20dp</dimen>
 
+    <dimen name="item_news_row_constraintLayout_height">290dp</dimen>
     <dimen name="item_news_row_linearlayout_paddingBottom">15dp</dimen>
     <dimen name="item_news_row_linearlayout_imageview_height">130dp</dimen>
     <dimen name="item_news_row_linearlayout_textview_marginTop">20dp</dimen>

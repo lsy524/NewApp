@@ -1,6 +1,7 @@
 package com.example.newsapp.adapter
 
 
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,7 @@ import org.w3c.dom.Text
 
 class NewsAdapter(private val items : List<Articles>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-
+    private var onClickListener : OnClickListener? = null
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
@@ -37,19 +38,37 @@ class NewsAdapter(private val items : List<Articles>) : RecyclerView.Adapter<Rec
         val time = holder.itemView.findViewById<TextView>(R.id.tv_time)
         val image = holder.itemView.findViewById<ImageView>(R.id.iv_urlImage)
 
+        if(holder is ViewHolder) {
+            author.text = model.author
+            title.text = model.title
+            time.text = model.publishedAt
 
-        author.text = model.author
-        title.text = model.title
-        time.text = model.publishedAt
-
-        CoroutineScope(Dispatchers.Main).launch {
-            val bitmap = withContext(Dispatchers.IO) {
-                ImageLoader.loadImage(model.urlToImage)
+            CoroutineScope(Dispatchers.Main).launch {
+                val bitmap = withContext(Dispatchers.IO) {
+                    ImageLoader.loadImage(model.urlToImage)
+                }
+                image.setImageBitmap(bitmap)
             }
-            image.setImageBitmap(bitmap)
+
+            holder.itemView.setOnClickListener {
+                if(onClickListener != null) {
+                    onClickListener!!.onClick(position, model)
+                }
+            }
         }
+
+
     }
 
     override fun getItemCount() = items.size
+
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
+    }
+
+
+    interface OnClickListener {
+        fun onClick(position: Int, model: Articles)
+    }
 
 }

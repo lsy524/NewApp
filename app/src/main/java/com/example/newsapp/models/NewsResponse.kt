@@ -16,6 +16,6 @@ data class Articles(
     val urlToImage : String = "",
     val publishedAt : String = "",
     val content : String = ""
-)
+) : Serializable
 
 
