@@ -3,6 +3,7 @@ package com.example.newsapp.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.bumptech.glide.Glide
 import com.example.newsapp.R
 import com.example.newsapp.databinding.ActivityNewsDetailsBinding
 import com.example.newsapp.fragment.NewsFragment
@@ -44,13 +45,9 @@ class NewsDetailsActivity : AppCompatActivity() {
             binding.tvTime.text = newsDetailModel.publishedAt
             binding.tvDescription.text = newsDetailModel.content
 
-            CoroutineScope(Dispatchers.Main).launch {
-                val bitmap = withContext(Dispatchers.IO) {
-                    ImageLoader.loadImage(newsDetailModel.urlToImage)
-                }
-                binding.ivUrlToImage.setImageBitmap(bitmap)
-            }
-
+            Glide.with(applicationContext)
+                .load(newsDetailModel.urlToImage)
+                .into(binding.ivUrlToImage)
 
         }
 

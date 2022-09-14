@@ -139,7 +139,7 @@ class NewsFragment : Fragment(), View.OnClickListener {
                     }
 
 
-                    newsAdapter = NewsAdapter(items)
+                    newsAdapter = NewsAdapter(requireContext(),items)
 
                     binding.rvNews.adapter = newsAdapter
 

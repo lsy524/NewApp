@@ -10,7 +10,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.newsapp.R
-import com.example.newsapp.activities.CategoryActivity
+import com.example.newsapp.activities.CategoryNewsActivity
 import com.example.newsapp.databinding.FragmentCategoryBinding
 import com.example.newsapp.models.NewsResponse
 import com.example.newsapp.network.TopNewsService
@@ -59,38 +59,38 @@ class CategoryFragment : Fragment(), View.OnClickListener {
             R.id.iv_news -> {findNavController().navigate(R.id.action_categoryFragment_to_newsFragment)}
             R.id.iv_save -> {findNavController().navigate(R.id.action_categoryFragment_to_savedFragment)}
             R.id.iv_business -> {
-                val intent = Intent(context, CategoryActivity::class.java)
+                val intent = Intent(context, CategoryNewsActivity::class.java)
                 intent.putExtra(Constants.CATEGORY, Constants.BUSINESS)
                 startActivity(intent)
 
             }
             R.id.iv_entertainment -> {
-                val intent = Intent(context, CategoryActivity::class.java)
+                val intent = Intent(context, CategoryNewsActivity::class.java)
                 intent.putExtra(Constants.CATEGORY, Constants.ENTERTAINMENT)
                 startActivity(intent)
             }
             R.id.iv_general -> {
-                val intent = Intent(context, CategoryActivity::class.java)
+                val intent = Intent(context, CategoryNewsActivity::class.java)
                 intent.putExtra(Constants.CATEGORY, Constants.GENERAL)
                 startActivity(intent)
             }
             R.id.iv_health -> {
-                val intent = Intent(context, CategoryActivity::class.java)
+                val intent = Intent(context, CategoryNewsActivity::class.java)
                 intent.putExtra(Constants.CATEGORY, Constants.HEALTH)
                 startActivity(intent)
             }
             R.id.iv_science -> {
-                val intent = Intent(context, CategoryActivity::class.java)
+                val intent = Intent(context, CategoryNewsActivity::class.java)
                 intent.putExtra(Constants.CATEGORY, Constants.SCIENCE)
                 startActivity(intent)
             }
             R.id.iv_sports -> {
-                val intent = Intent(context, CategoryActivity::class.java)
+                val intent = Intent(context, CategoryNewsActivity::class.java)
                 intent.putExtra(Constants.CATEGORY, Constants.SPORTS)
                 startActivity(intent)
             }
             R.id.iv_technology -> {
-                val intent = Intent(context, CategoryActivity::class.java)
+                val intent = Intent(context, CategoryNewsActivity::class.java)
                 intent.putExtra(Constants.CATEGORY, Constants.TECHNOLOGY)
                 startActivity(intent)
             }

@@ -1,12 +1,12 @@
 package com.example.newsapp.activities
 
 import android.content.SharedPreferences
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.newsapp.R
-import com.example.newsapp.databinding.ActivityCategoryBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.newsapp.adapter.NewsAdapter
+import com.example.newsapp.databinding.ActivityCategoryNewsBinding
 import com.example.newsapp.models.Articles
 import com.example.newsapp.models.NewsResponse
 import com.example.newsapp.network.TopNewsService
@@ -15,16 +15,18 @@ import com.google.gson.Gson
 import retrofit.*
 import java.util.*
 
-class CategoryActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityCategoryBinding
-    private val TAG = CategoryActivity::class.java.simpleName
+class CategoryNewsActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCategoryNewsBinding
+    private val TAG = CategoryNewsActivity::class.java.simpleName
     private lateinit var categoryType : String
 
     private lateinit var mSharedPreferences: SharedPreferences
 
+    private lateinit var categoryAdapter: NewsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCategoryBinding.inflate(layoutInflater)
+        binding = ActivityCategoryNewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         categoryType = intent.getStringExtra(Constants.CATEGORY).toString()
@@ -82,6 +84,12 @@ class CategoryActivity : AppCompatActivity() {
                             items.add(Articles(author, title, description, url, urlToImage, publishedAt, content))
                         }
                     }
+
+                    categoryAdapter = NewsAdapter(applicationContext,items)
+                    binding.rvCategory.adapter = categoryAdapter
+                    binding.rvCategory.layoutManager = LinearLayoutManager(applicationContext)
+
+
                 } else {
                     when(response.code()) {
                         400 -> Log.e("Error 400", "Bad Request")

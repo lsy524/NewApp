@@ -1,6 +1,7 @@
 package com.example.newsapp.adapter
 
 
+import android.content.Context
 import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.newsapp.R
 import com.example.newsapp.databinding.ItemTopNewsRowBinding
 import com.example.newsapp.models.Articles
@@ -18,7 +20,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.w3c.dom.Text
 
-class NewsAdapter(private val items : List<Articles>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class NewsAdapter(private val context: Context, private val items : List<Articles>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var onClickListener : OnClickListener? = null
 
@@ -42,13 +44,10 @@ class NewsAdapter(private val items : List<Articles>) : RecyclerView.Adapter<Rec
             author.text = model.author
             title.text = model.title
             time.text = model.publishedAt
+            Glide.with(context)
+                .load(model.urlToImage)
+                .into(image)
 
-            CoroutineScope(Dispatchers.Main).launch {
-                val bitmap = withContext(Dispatchers.IO) {
-                    ImageLoader.loadImage(model.urlToImage)
-                }
-                image.setImageBitmap(bitmap)
-            }
 
             holder.itemView.setOnClickListener {
                 if(onClickListener != null) {
