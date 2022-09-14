@@ -1,7 +1,7 @@
 ## 원티드 프리온보딩 안드로이드 코스 사전과제
 > News API를 활용한 Android 뉴스앱 개발
 
-### 프로젝트 요구사항
+## 프로젝트 요구사항
 
 * [News API](https://newsapi.org/) 활용
 * UI 개발은 XML 기반은 View를 사용해야 한다.
@@ -28,7 +28,7 @@
     * 저장한 News 목록을 나타나야 한다.
     * 데이터베이스 구현은 SQLiteOpenHelper 또는 Room을 사용해야 한다.
 
-### 프로젝트 데모
+## 프로젝트 데모
 * News 목록
 
 * News 카테고리
@@ -37,7 +37,7 @@
 
 * Saved 목록
 
-### 파일 구조
+## 파일 구조
 ```bash
 ├── activities
 │   └── CategoryNewsActivity.kt
