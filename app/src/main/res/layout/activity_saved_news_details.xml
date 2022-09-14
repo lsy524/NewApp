@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.NewsDetailsActivity">
+    tools:context=".activities.SavedNewsDetailsActivity">
 
     <include
-        android:id="@+id/details_toolbar"
+        android:id="@+id/saved_toolbar"
         layout="@layout/toolbar"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -17,22 +16,22 @@
         android:layout_height="@dimen/detail_news_linearlayout_height"
         android:padding="@dimen/detail_news_linearlayout_padding"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/details_toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/saved_toolbar">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
             android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/detail_news_linearlayout_text_size"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            tools:text="Photo proves US star is a cheat code as world record obliterated - Fox Sports"/>
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/detail_news_linearlayout_text_size"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                tools:text="Photo proves US star is a cheat code as world record obliterated - Fox Sports"/>
 
             <ImageView
                 android:id="@+id/iv_star"
@@ -96,10 +95,4 @@
 
         </androidx.cardview.widget.CardView>
     </LinearLayout>
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

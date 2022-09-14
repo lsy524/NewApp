@@ -16,6 +16,22 @@
     <dimen name="item_news_row_linearlayout_textview_padding">10dp</dimen>
     <dimen name="item_news_row_linearlayout_textview_marginStartEnd">10dp</dimen>
 
+    <dimen name="detail_news_linearlayout_height">0dp</dimen>
+    <dimen name="detail_news_linearlayout_padding">20dp</dimen>
+    <dimen name="detail_news_linearlayout_text_size">19sp</dimen>
+    <dimen name="detail_news_linearlayout_star_width">80dp</dimen>
+    <dimen name="detail_news_linearlayout_star_height">40dp</dimen>
+    <dimen name="detail_news_linearlayout_marginTop">20dp</dimen>
+    <dimen name="detail_news_linearlayout_marginStart">10dp</dimen>
+    <dimen name="detail_news_cardView_corner_radius">10dp</dimen>
+    <dimen name="detail_news_cardView_imageview_height">218dp</dimen>
+    <dimen name="detail_news_cardView_textview_size">18sp</dimen>
+    <dimen name="detail_news_cardView_textview_marginTop">20dp</dimen>
+
+
+
+
+
 
 
 

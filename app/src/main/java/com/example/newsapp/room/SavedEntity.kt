@@ -2,6 +2,7 @@ package com.example.newsapp.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "saved-table")
 data class SavedEntity(
@@ -15,4 +16,4 @@ data class SavedEntity(
     val urlToImage : String = "",
     val publishedAt : String = "",
     val content : String = ""
-)
+) : Serializable

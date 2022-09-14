@@ -5,11 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.newsapp.databinding.ItemTopNewsRowBinding
+import com.example.newsapp.models.Articles
 import com.example.newsapp.room.SavedEntity
 
 class SavedAdapter(
     private val items: ArrayList<SavedEntity>): RecyclerView.Adapter<SavedAdapter.ViewHolder>() {
 
+    private var onClickListener : OnClickListener? = null
     class ViewHolder(binding: ItemTopNewsRowBinding) : RecyclerView.ViewHolder(binding.root) {
         val savedAuthor = binding.tvAuthor
         val savedTitle = binding.tvTitle
@@ -32,7 +34,22 @@ class SavedAdapter(
             .load(model.urlToImage)
             .into(holder.savedImage)
 
+        holder.itemView.setOnClickListener {
+            if(onClickListener != null) {
+                onClickListener!!.onClick(position, model)
+            }
+        }
+
     }
 
     override fun getItemCount() = items.size
+
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onClickListener = onClickListener
+    }
+
+
+    interface OnClickListener {
+        fun onClick(position: Int, model: SavedEntity)
+    }
 }
