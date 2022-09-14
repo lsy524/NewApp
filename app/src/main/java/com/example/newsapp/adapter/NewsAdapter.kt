@@ -24,29 +24,29 @@ class NewsAdapter(private val context: Context, private val items : List<Article
 
     private var onClickListener : OnClickListener? = null
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
+    class ViewHolder(binding: ItemTopNewsRowBinding) : RecyclerView.ViewHolder(binding.root) {
+        val author = binding.tvAuthor
+        val title = binding.tvTitle
+        val time = binding.tvTime
+        val image = binding.ivUrlImage
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_top_news_row, parent, false))
+        return ViewHolder(ItemTopNewsRowBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val model = items[position]
 
-        val author = holder.itemView.findViewById<TextView>(R.id.tv_author)
-        val title = holder.itemView.findViewById<TextView>(R.id.tv_title)
-        val time = holder.itemView.findViewById<TextView>(R.id.tv_time)
-        val image = holder.itemView.findViewById<ImageView>(R.id.iv_urlImage)
-
         if(holder is ViewHolder) {
-            author.text = model.author
-            title.text = model.title
-            time.text = model.publishedAt
+            holder.author.text = model.author
+            holder.title.text = model.title
+            holder.time.text = model.publishedAt
             Glide.with(context)
                 .load(model.urlToImage)
-                .into(image)
+                .into(holder.image)
 
 
             holder.itemView.setOnClickListener {

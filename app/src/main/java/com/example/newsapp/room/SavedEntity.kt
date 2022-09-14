@@ -3,11 +3,11 @@ package com.example.newsapp.room
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "news-table")
-data class NewsEntity(
-
+@Entity(tableName = "saved-table")
+data class SavedEntity(
     @PrimaryKey(autoGenerate = true)
     val id : Int = 0,
+    val saved: Boolean = false,
     val author : String = "",
     val title : String= "",
     val description : String = "",
@@ -15,5 +15,4 @@ data class NewsEntity(
     val urlToImage : String = "",
     val publishedAt : String = "",
     val content : String = ""
-
 )

@@ -13,5 +13,4 @@ object Constants {
     const val SCIENCE = "science"
     const val SPORTS = "sports"
     const val TECHNOLOGY = "technology"
-    const val EXTRA_NEWS_DETAILS = "extra_news_details"
 }

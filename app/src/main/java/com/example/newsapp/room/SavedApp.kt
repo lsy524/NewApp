@@ -2,9 +2,9 @@ package com.example.newsapp.room
 
 import android.app.Application
 
-class NewsApp : Application() {
+class SavedApp : Application() {
 
     val db by lazy {
-        NewsDatabase.getInstance(this)
+        SavedDatabase.getInstance(this)
     }
 }

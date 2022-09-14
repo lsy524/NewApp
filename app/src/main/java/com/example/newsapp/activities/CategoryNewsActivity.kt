@@ -25,6 +25,10 @@ class CategoryNewsActivity : AppCompatActivity() {
 
     private lateinit var categoryAdapter: NewsAdapter
 
+    companion object {
+        var EXTRA_CATEGORY_NEWS_DETAILS = "extra_news_details"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCategoryNewsBinding.inflate(layoutInflater)
@@ -93,7 +97,7 @@ class CategoryNewsActivity : AppCompatActivity() {
                     categoryAdapter.setOnClickListener(object : NewsAdapter.OnClickListener{
                         override fun onClick(position: Int, model: Articles) {
                             val intent = Intent(this@CategoryNewsActivity, NewsDetailsActivity::class.java)
-                            intent.putExtra(Constants.EXTRA_NEWS_DETAILS, model)
+                            intent.putExtra(EXTRA_CATEGORY_NEWS_DETAILS, model)
                             startActivity(intent)
                         }
 
