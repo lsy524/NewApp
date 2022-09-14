@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
 
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,15 +20,8 @@ import com.example.newsapp.databinding.FragmentNewsBinding
 import com.example.newsapp.models.Articles
 import com.example.newsapp.models.NewsResponse
 import com.example.newsapp.network.TopNewsService
-import com.example.newsapp.room.NewsApp
-import com.example.newsapp.room.NewsDao
-import com.example.newsapp.room.NewsEntity
 import com.example.newsapp.util.Constants
 import com.google.gson.Gson
-import kotlinx.coroutines.launch
-import org.json.JSONObject
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.dsl.koinApplication
 import retrofit.*
 
 
@@ -113,7 +104,9 @@ class NewsFragment : Fragment(), View.OnClickListener {
                     )
 
 
+
                     editor.apply()
+
 
                     val items = mutableListOf<Articles>()
                     response.body()?.let {
@@ -124,45 +117,23 @@ class NewsFragment : Fragment(), View.OnClickListener {
                         var urlToImage : String
                         var publishedAt: String
                         var content : String
+
                         for (i in it.articles.indices) {
-                            author = if(it.articles[i].author != null) {
-                                it.articles[i].author
-                            } else {
-                                ""
-                            }
-                            title = if(it.articles[i].title != null) {
-                                it.articles[i].title
-                            } else {
-                                ""
-                            }
-                            description = if(it.articles[i].description != null) {
-                                it.articles[i].description
-                            } else {
-                                ""
-                            }
-                            url = if(it.articles[i].url != null ){
-                                it.articles[i].url
-                            } else {
-                                ""
-                            }
+                            author = it.articles[i].author ?: ""
 
-                            urlToImage = if(it.articles[i].urlToImage != null) {
-                                it.articles[i].urlToImage
-                            } else {
-                                ""
-                            }
-                            publishedAt = if(it.articles[i].publishedAt != null) {
-                                it.articles[i].publishedAt
-                            } else {
-                                ""
-                            }
-                            content = if(it.articles[i].content != null ) {
-                                it.articles[i].content
-                            } else {
-                                ""
-                            }
+                            title = it.articles[i].title ?: ""
+
+                            description = it.articles[i].description ?: ""
+
+                            url = it.articles[i].url ?: ""
+
+                            urlToImage = it.articles[i].urlToImage ?: ""
+
+                            publishedAt = it.articles[i].publishedAt ?: ""
+
+                            content = it.articles[i].content ?: ""
+
                             items.add(Articles(author, title, description, url, urlToImage, publishedAt, content))
-
 
                         }
                     }

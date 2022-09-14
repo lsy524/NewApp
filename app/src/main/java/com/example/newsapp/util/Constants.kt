@@ -5,4 +5,12 @@ object Constants {
     const val BASE_URL : String = "https://newsapi.org/v2/"
     const val PREFERENCE_NAME = "NewsAppPreference"
     const val NEWS_RESPONSE_DATA = "news_response_data"
+    const val CATEGORY = "category"
+    const val BUSINESS = "business"
+    const val ENTERTAINMENT = "entertainment"
+    const val GENERAL = "general"
+    const val HEALTH = "health"
+    const val SCIENCE = "science"
+    const val SPORTS = "sports"
+    const val TECHNOLOGY = "technology"
 }
