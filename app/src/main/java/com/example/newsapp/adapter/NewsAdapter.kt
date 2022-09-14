@@ -2,23 +2,12 @@ package com.example.newsapp.adapter
 
 
 import android.content.Context
-import android.content.DialogInterface
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.newsapp.R
 import com.example.newsapp.databinding.ItemTopNewsRowBinding
 import com.example.newsapp.models.Articles
-import com.example.newsapp.util.ImageLoader
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import org.w3c.dom.Text
 
 class NewsAdapter(private val context: Context, private val items : List<Articles>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
