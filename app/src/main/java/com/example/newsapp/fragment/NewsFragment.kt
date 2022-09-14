@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,10 +22,15 @@ import com.example.newsapp.databinding.FragmentNewsBinding
 import com.example.newsapp.models.Articles
 import com.example.newsapp.models.NewsResponse
 import com.example.newsapp.network.TopNewsService
+import com.example.newsapp.room.NewsApp
+import com.example.newsapp.room.NewsDao
+import com.example.newsapp.room.NewsEntity
 import com.example.newsapp.util.Constants
 import com.google.gson.Gson
+import kotlinx.coroutines.launch
 import org.json.JSONObject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.dsl.koinApplication
 import retrofit.*
 
 
@@ -36,6 +43,7 @@ class NewsFragment : Fragment(), View.OnClickListener {
     private val TAG = NewsFragment::class.java.simpleName
 
     private lateinit var newsAdapter: NewsAdapter
+
 
     companion object {
         var EXTRA_NEWS_DETAILS = "extra_news_details"
@@ -54,6 +62,8 @@ class NewsFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentNewsBinding.inflate(layoutInflater, container, false)
+
+
 
         mSharedPreferences = this.requireActivity()
             .getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE)
@@ -153,8 +163,10 @@ class NewsFragment : Fragment(), View.OnClickListener {
                             }
                             items.add(Articles(author, title, description, url, urlToImage, publishedAt, content))
 
+
                         }
                     }
+
 
                     newsAdapter = NewsAdapter(items)
 
@@ -163,10 +175,10 @@ class NewsFragment : Fragment(), View.OnClickListener {
                     binding.rvNews.layoutManager = LinearLayoutManager(context)
 
 
-                    newsAdapter.setOnClickListener(object : NewsAdapter.OnClickListener{
+                    newsAdapter.setOnClickListener(object : NewsAdapter.OnClickListener {
                         override fun onClick(position: Int, model: Articles) {
                             val intent = Intent(requireContext(), NewsDetailsActivity::class.java)
-                            intent.putExtra(EXTRA_NEWS_DETAILS, items.toString())
+                            intent.putExtra(EXTRA_NEWS_DETAILS, model)
                             startActivity(intent)
 
 
@@ -196,7 +208,6 @@ class NewsFragment : Fragment(), View.OnClickListener {
         })
 
     }
-
 
 
 }
