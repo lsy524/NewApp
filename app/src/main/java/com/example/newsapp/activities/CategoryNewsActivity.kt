@@ -1,5 +1,6 @@
 package com.example.newsapp.activities
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -89,6 +90,14 @@ class CategoryNewsActivity : AppCompatActivity() {
                     binding.rvCategory.adapter = categoryAdapter
                     binding.rvCategory.layoutManager = LinearLayoutManager(applicationContext)
 
+                    categoryAdapter.setOnClickListener(object : NewsAdapter.OnClickListener{
+                        override fun onClick(position: Int, model: Articles) {
+                            val intent = Intent(this@CategoryNewsActivity, NewsDetailsActivity::class.java)
+                            intent.putExtra(Constants.EXTRA_NEWS_DETAILS, model)
+                            startActivity(intent)
+                        }
+
+                    })
 
                 } else {
                     when(response.code()) {
