@@ -29,13 +29,10 @@
     * 데이터베이스 구현은 SQLiteOpenHelper 또는 Room을 사용해야 한다.
 
 ## 프로젝트 데모
-* News 목록
+|목록|카테고리|북마크|
+|------|---|---|
+|![main](https://user-images.githubusercontent.com/96644159/190138439-924476fb-e334-4223-aa08-b14eb31a9491.gif)|![category](https://user-images.githubusercontent.com/96644159/190138708-022f9c6e-3bdb-4eef-9fa4-7ef90f53db99.gif)|![saved](https://user-images.githubusercontent.com/96644159/190138855-d483688f-0172-4c0d-b1de-0c32402dc360.gif)
 
-* News 카테고리
-
-* News 상세정보
-
-* Saved 목록
 
 ## 파일 구조
 ```bash
