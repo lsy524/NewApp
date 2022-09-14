@@ -98,38 +98,6 @@ class CategoryFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun getBusinessNews(category: String) {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val service : TopNewsService = retrofit.create(TopNewsService::class.java)
-
-        val listCall: Call<NewsResponse> = service.getCategoryNews("us",Constants.APP_KEY,category)
-        listCall.enqueue(object : Callback<NewsResponse>{
-            override fun onResponse(response: Response<NewsResponse>?, retrofit: Retrofit?) {
-                if(response!!.isSuccess) {
-                    val businessNewsList: NewsResponse = response.body()
-                    val businessNewsResponseJsonString = Gson().toJson(businessNewsList)
-                    val editor = mSharedPreferences.edit()
-                    editor.putString(
-                        Constants.NEWS_RESPONSE_DATA,
-                        businessNewsResponseJsonString
-                    )
-
-                    editor.apply()
-                    Log.d(TAG, businessNewsList.toString())
-                }
-
-            }
-
-            override fun onFailure(t: Throwable?) {
-                Log.e(TAG, t!!.message.toString())
-            }
-
-        })
-    }
 
 
 
