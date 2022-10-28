@@ -29,28 +29,5 @@
 
 ## 파일 구조
 ```bash
-├── activities
-│   └── CategoryNewsActivity.kt
-│   └── MainActivity.kt
-│   └── NewsDetailsActivity.kt
-│   └── SavedNewsDetailsActivity.kt
-├── adapter
-│   └── NewsAdapter.kt
-│   └── SavedAdapter.kt
-├── fragment
-│   └── CategoryFragment.kt
-│   └── NewsFragment.kt
-│   └── SavedFragment.kt
-├── models
-│   └── NewsResponse.kt
-├── network
-│   └── TopNewsService.kt
-├── room
-│   └── SavedApp.kt
-│   └── SavedDao.kt
-│   └── SavedDatabase.kt
-│   └── SavedEntity.kt
-├── util
-│   └── Constants.kt
-│   └── FragmentDrawable.kt
+====================================
 ```
